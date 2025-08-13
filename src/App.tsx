@@ -5,12 +5,13 @@ import './App.css'
 import Hero from './components/Hero'
 import Couple from './components/Couple'
 import Footer from './components/Footer'
-import RSVP from './components/RSVP'
 import Event from './components/Event'
 import Countdown from './components/Countdown'
 import Gallery from './components/Gallery'
 import Prayer from './components/Prayer'
 import WeddingGift from './components/WeddingGift'
+import RSVPForm from './components/RSVPForm'
+import RSVPList from './components/RSVPList'
 
 
 function App() {
@@ -24,7 +25,8 @@ function App() {
       <Countdown />
       <Event />
       <Gallery />
-      <RSVP />
+      <RSVPForm />
+      <RSVPList />
       <WeddingGift/>
       <Footer />
     </div>
