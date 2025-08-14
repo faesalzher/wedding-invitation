@@ -1,14 +1,103 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useSwipeable } from "react-swipeable";
+
+const BASE_PATH = `${import.meta.env.BASE_URL}images/`;
+
 const Gallery = () => {
+  const images = [
+    "Salinan 4.jpg",
+    "Salinan 5.jpg",
+    "Salinan 6.jpg",
+    "Salinan 11.jpg",
+  ].map((file) => BASE_PATH + file);
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const openModal = (index) => {
+    setCurrentIndex(index);
+    setIsOpen(true);
+  };
+
+  const closeModal = () => setIsOpen(false);
+
+  const nextImage = () =>
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+
+  const prevImage = () =>
+    setCurrentIndex((prev) =>
+      prev === 0 ? images.length - 1 : prev - 1
+    );
+
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: nextImage,
+    onSwipedRight: prevImage,
+    trackMouse: true,
+  });
+
   return (
     <section className="py-10 px-6 text-center">
-      <h3 className="text-2xl font-bold mb-6">Galeri</h3>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <img src="https://img.freepik.com/free-photo/beautiful-bride-groom-having-beach-wedding_23-2149043969.jpg?semt=ais_hybrid&w=740" className="rounded-xl object-cover w-full" />
-        <img src="https://img.freepik.com/free-photo/beautiful-bride-groom-having-beach-wedding_23-2149043969.jpg?semt=ais_hybrid&w=740" className="rounded-xl object-cover w-full" />
-        <img src="https://img.freepik.com/free-photo/beautiful-bride-groom-having-beach-wedding_23-2149043969.jpg?semt=ais_hybrid&w=740" className="rounded-xl object-cover w-full" />
-      </div>
-    </section>
-  )
-}
+      <h3 className="text-2xl font-bold mb-6">Our Gallery</h3>
 
-export default Gallery
+      {/* Grid Gallery */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {images.map((src, idx) => (
+          <img
+            key={idx}
+            src={src}
+            onClick={() => openModal(idx)}
+            className="rounded-lg object-cover w-full cursor-pointer hover:opacity-80"
+          />
+        ))}
+      </div>
+
+      {/* Modal */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 text-white text-2xl"
+            >
+              ✕
+            </button>
+
+            <button
+              onClick={prevImage}
+              className="absolute left-6 text-white text-3xl"
+            >
+              ‹
+            </button>
+
+            <div {...swipeHandlers}>
+              <motion.img
+                key={currentIndex}
+                src={images[currentIndex]}
+                className="max-h-[80vh] max-w-[90vw] rounded-lg"
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.3 }}
+              />
+            </div>
+
+            <button
+              onClick={nextImage}
+              className="absolute right-6 text-white text-3xl"
+            >
+              ›
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
+  );
+};
+
+export default Gallery;
