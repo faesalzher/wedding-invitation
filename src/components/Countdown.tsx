@@ -27,7 +27,7 @@ const Countdown = () => {
 
   return (
     <section className="text-center py-16 px-4 bg-green-50">
-      <h3 className="text-3xl font-script text-green-800 mb-10">Menuju Hari Bahagia</h3>
+      <h3 className="text-2xl font-bold mb-6">Menuju Hari Bahagia</h3>
 
       <div className="flex flex-nowrap gap-4 justify-center overflow-x-auto px-2 scrollbar-hide">
         {timeItems.map((item, index) => (

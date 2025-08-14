@@ -1,4 +1,4 @@
-import { collection, addDoc, Timestamp, getDocs, orderBy, query, onSnapshot } from "firebase/firestore";
+import { collection, addDoc, Timestamp, orderBy, query, onSnapshot } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 import type { RSVPMessage } from "../types/rsvp";
 

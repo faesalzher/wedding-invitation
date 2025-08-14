@@ -1,36 +1,28 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-import './App.css'
-import Hero from './components/Hero'
-import Couple from './components/Couple'
-import Footer from './components/Footer'
-import Event from './components/Event'
-import Countdown from './components/Countdown'
-import Gallery from './components/Gallery'
-import Prayer from './components/Prayer'
-import WeddingGift from './components/WeddingGift'
-import RSVPForm from './components/RSVPForm'
-import RSVPList from './components/RSVPList'
-
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import LandingScreen from "./components/LandingScreen";
+import WeddingPage from "./components/WeddingPage";
 
 function App() {
-  // const [count, setCount] = useState(0)
+  const [isOpened, setIsOpened] = useState(false);
 
   return (
-    <div className="bg-[#fdfbf6] text-green-800">
-      <Hero />
-      <Couple />
-      <Prayer/>
-      <Countdown />
-      <Event />
-      <Gallery />
-      <RSVPForm />
-      <RSVPList />
-      <WeddingGift/>
-      <Footer />
-    </div>
-  )
+    <AnimatePresence mode="wait">
+      {!isOpened ? (
+        <motion.div
+          key="landing"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0, y: -50 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+        >
+          <LandingScreen onOpen={() => setIsOpened(true)} />
+        </motion.div>
+      ) : (
+        <WeddingPage />
+      )}
+    </AnimatePresence>
+  );
 }
 
-export default App
+export default App;

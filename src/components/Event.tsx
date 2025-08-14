@@ -3,7 +3,7 @@ import { CalendarDays, Clock3, MapPin } from 'lucide-react'
 const Event = () => {
   return (
     <section className="bg-green-50 py-16 px-6 text-center">
-      <h3 className="text-3xl font-script text-green-800 mb-10">Jadwal Acara</h3>
+      <h3 className="text-2xl font-bold mb-6">Jadwal Acara</h3>
 
       <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
         {/* Akad */}

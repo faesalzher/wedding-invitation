@@ -1,7 +1,7 @@
 const Prayer = () => {
   return (
     <section className="bg-green-50 py-16 px-6 text-center">
-      <h3 className="text-3xl font-script text-green-800 mb-4">QS. Ar-Rum Ayat 21</h3>
+      <h3 className="text-2xl font-bold mb-6">QS. Ar-Rum Ayat 21</h3>
 
       <p className="text-2xl md:text-1xl leading-relaxed text-green-900 font-arabic max-w-3xl mx-auto mb-6">
         وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا

@@ -25,7 +25,7 @@ const RSVPForm: React.FC = () => {
 
   return (
     <section className="py-16 px-4 bg-green-50 text-center">
-      <h3 className="text-3xl font-script text-green-800 mb-4">Konfirmasi Kehadiran</h3>
+      <h3 className="text-2xl font-bold mb-6">Konfirmasi Kehadiran</h3>
       <p className="mb-6 text-gray-600">Kami dengan senang hati menantikan kehadiran Anda 🙏</p>
       <form className="bg-white max-w-md mx-auto rounded-xl p-6 shadow border border-green-100 space-y-4 text-left" onSubmit={handleSubmit}>
 

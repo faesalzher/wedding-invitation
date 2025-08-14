@@ -12,7 +12,7 @@ const WeddingGift = () => {
 
   return (
     <section className="bg-white py-16 px-6 text-center">
-      <h3 className="text-3xl font-script text-green-800 mb-6">Wedding Gift</h3>
+      <h3 className="text-2xl font-bold mb-6">Wedding Gift</h3>
 
       <p className="max-w-xl mx-auto text-gray-700 mb-6">
         Doa dan restu Bapak/Ibu/Saudara/i sudah sangat berarti bagi kami. 

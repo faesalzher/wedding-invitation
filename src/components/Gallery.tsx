@@ -9,13 +9,16 @@ const Gallery = () => {
     "Salinan 4.jpg",
     "Salinan 5.jpg",
     "Salinan 6.jpg",
-    "Salinan 11.jpg",
+    "Salinan-11.jpg",
+       "Salinan 4.jpg",
+    "Salinan 5.jpg",
+    "Salinan 6.jpg"
   ].map((file) => BASE_PATH + file);
 
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const openModal = (index) => {
+  const openModal = (index: number) => {
     setCurrentIndex(index);
     setIsOpen(true);
   };
@@ -39,24 +42,25 @@ const Gallery = () => {
   return (
     <section className="py-10 px-6 text-center">
       <h3 className="text-2xl font-bold mb-6">Our Gallery</h3>
-
-      {/* Grid Gallery */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {images.map((src, idx) => (
-          <img
-            key={idx}
-            src={src}
-            onClick={() => openModal(idx)}
-            className="rounded-lg object-cover w-full cursor-pointer hover:opacity-80"
-          />
-        ))}
+      <div className="max-h-[60vh] overflow-y-auto pr-2">
+        {/* Grid Gallery */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {images.map((src, idx) => (
+            <img
+              key={idx}
+              src={src}
+              onClick={() => openModal(idx)}
+              className="rounded-lg object-cover w-full cursor-pointer hover:opacity-80"
+            />
+          ))}
+        </div>
       </div>
-
       {/* Modal */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+            className="fixed inset-0 bg-gradient-to-b from-black/60 via-black/90 to-black/90 flex items-center justify-center z-50"
+
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

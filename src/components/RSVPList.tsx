@@ -21,7 +21,7 @@ const RSVPList: React.FC = () => {
 
   return (
     <section className="py-16 px-4 bg-green-50 text-center">
-      <h2 className="text-3xl font-script text-green-800 mb-4">Ucapan & Doa</h2>
+      <h2 className="text-2xl font-bold mb-6">Ucapan & Doa</h2>
       <div className="mt-12 max-w-2xl mx-auto text-left">
         <div className="max-h-[60vh] overflow-y-auto pr-2"> {/* Scrollable wrapper */}
           <ul className="space-y-4">
