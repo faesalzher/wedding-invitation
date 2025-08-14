@@ -1,13 +1,15 @@
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
+
+
 const BASE_PATH = `${import.meta.env.BASE_URL}images/`;
 
-const textVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i: number) => ({
-        opacity: 1,
-        y: 0,
-        transition: { delay: i * 0.3, duration: 0.6, ease: "easeOut" },
-    }),
+const textVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (custom: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: custom * 0.3, duration: 0.6, ease: [0.42, 0, 0.58, 1] }, // easeOut cubic-bezier
+  }),
 };
 
 const LandingScreen = ({ onOpen }: { onOpen: () => void }) => {
