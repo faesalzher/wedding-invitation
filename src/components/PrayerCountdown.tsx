@@ -17,7 +17,7 @@ const PrayerCountdown = () => {
         style={{
           backgroundImage: `url(${bg})`,
           // backgroundPosition: "center top",
-          backgroundPosition: "30% center top"
+          backgroundPosition: "80% bottom"
         }}>
         <Countdown />
       </div>

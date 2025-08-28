@@ -15,13 +15,13 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/10"></div>
 
       <div className="relative z-10">
-        <h1 className="text-4xl md:text-6xl font-olivia-dhorgent text-bg drop-shadow-lg">
+        <h1 className="text-4xl md:text-6xl font-olivia text-bg">
           The Wedding of
         </h1>
-        <h2 className="font-britannic-bold-regular text-5xl mt-2 text-bg drop-shadow-lg">
+        <h2 className="font-britannic text-5xl mt-2 text-bg">
           Faesal & Dewi
         </h2>
-        <p className="mt-4 text-lg text-bg drop-shadow">
+        <p className="mt-4 text-lg text-bg font-belgiano">
           Minggu, 28 September 2025
         </p>
       </div>

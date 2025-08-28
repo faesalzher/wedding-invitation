@@ -1,33 +1,34 @@
-import { useEffect, useState } from 'react'
-import dayjs from 'dayjs'
+import { useEffect, useState } from "react";
+import dayjs from "dayjs";
 
-const targetDate = dayjs('2025-09-28T09:00:00')
+const targetDate = dayjs("2025-09-28T09:00:00");
 
 const Countdown = () => {
-  const [remaining, setRemaining] = useState(targetDate.diff(dayjs()))
+  const [remaining, setRemaining] = useState(targetDate.diff(dayjs()));
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setRemaining(targetDate.diff(dayjs()))
-    }, 1000)
-    return () => clearInterval(timer)
-  }, [])
+      setRemaining(targetDate.diff(dayjs()));
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
-  const days = Math.floor(remaining / (1000 * 60 * 60 * 24))
-  const hours = Math.floor((remaining / (1000 * 60 * 60)) % 24)
-  const minutes = Math.floor((remaining / (1000 * 60)) % 60)
-  const seconds = Math.floor((remaining / 1000) % 60)
+  const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((remaining / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((remaining / (1000 * 60)) % 60);
+  const seconds = Math.floor((remaining / 1000) % 60);
 
   const timeItems = [
-    { label: 'Hari', value: days },
-    { label: 'Jam', value: hours },
-    { label: 'Menit', value: minutes },
-    { label: 'Detik', value: seconds },
-  ]
+    { label: "Hari", value: days },
+    { label: "Jam", value: hours },
+    { label: "Menit", value: minutes },
+    { label: "Detik", value: seconds },
+  ];
 
   return (
     <section className="text-center py-16 px-4 relative bg-bg-50">
-      <h3 className="text-3xl mb-8 font-olivia-dhorgent text-white drop-shadow-md">
+      <h1 className="mb-10 text-sm italic text-white/80">Save The Date! 🌿</h1>
+      <h3 className="text-5xl mb-8 font-olivia text-white drop-shadow-md">
         Menuju Hari Bahagia
       </h3>
 
@@ -42,13 +43,7 @@ const Countdown = () => {
           </div>
         ))}
       </div>
-
-      <h1 className="mt-10 text-sm italic text-white/80">
-        Waktu terus berjalan menuju hari istimewa kami 🌿
-      </h1>
     </section>
-
-
   );
 };
 

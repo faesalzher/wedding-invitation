@@ -10,9 +10,21 @@
   src: url("/fonts/Britannic-Bold-Regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Abuget";
+  src: url("/fonts/Abuget.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Belgiano-Serif-2";
+  src: url("/fonts/Belgiano-Serif-2.ttf") format("truetype");
+}
+
 @theme {
-  --font-olivia-dhorgent: "Olivia-Dhorgent", cursive;
-  --font-britannic-bold-regular: "Britannic-Bold-Regular", sans-serif;
+  --font-olivia: "Olivia-Dhorgent", cursive;
+  --font-britannic: "Britannic-Bold-Regular", sans-serif;
+  --font-belgiano: "Belgiano-Serif-2";
+  --font-abuget: "Abuget";
 
     /* custom colors */
   --color-primary: #636b7c; /* gelap */

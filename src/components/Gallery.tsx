@@ -40,9 +40,10 @@ const Gallery = () => {
   });
 
   return (
-    <section className="py-10 px-6 text-center">
-      <h3 className="text-2xl font-bold mb-6">Our Gallery</h3>
-      <div className="max-h-[60vh] overflow-y-auto pr-2">
+    <section  className="relative min-h-screen bg-bg flex flex-col justify-center items-center text-center bg-cover bg-center bg-scroll px-6 pb-5">
+      
+      <h3 className="text-5xl mb-10 font-olivia text-primary">Our Moments</h3>
+      <div className="max-h-[75vh] overflow-y-auto pr-2">
         {/* Grid Gallery */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {images.map((src, idx) => (

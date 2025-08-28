@@ -1,6 +1,5 @@
 import { motion, type Variants } from "framer-motion";
 
-
 const BASE_PATH = `${import.meta.env.BASE_URL}images/`;
 
 const textVariants: Variants = {
@@ -8,101 +7,69 @@ const textVariants: Variants = {
   visible: (custom: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: custom * 0.3, duration: 0.6, ease: [0.42, 0, 0.58, 1] }, // easeOut cubic-bezier
+    transition: {
+      delay: custom * 0.3,
+      duration: 0.6,
+      ease: [0.42, 0, 0.58, 1],
+    }, // easeOut cubic-bezier
   }),
 };
 
 const LandingScreen = ({ onOpen }: { onOpen: () => void }) => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const guestName = urlParams.get("to") || "Tamu Undangan";
+  const urlParams = new URLSearchParams(window.location.search);
+  const guestName = urlParams.get("to") || "Tamu Undangan";
 
-    return (
-        <motion.div
-            className="h-screen w-full bg-center bg-cover relative"
-            style={{
-                backgroundImage: `url('${BASE_PATH}Salinan-DSC08848.jpg')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-            }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-        >
+  return (
+    <motion.div
+      className="relative min-h-screen flex flex-col justify-end items-center text-center bg-cover bg-center bg-scroll px-6 pb-30"
+      style={{
+        backgroundImage: `url('${BASE_PATH}landing-bg.jpeg')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, x: -100 }}
+      transition={{ duration: 0.8, ease: "easeInOut" }}
+    >
+      <div className="relative z-10">
+        <div className="mt-auto text-primary font-britannic">
+          <motion.p
+            className=""
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
+            custom={3}
+          >
+            Kepada Yth. {guestName}
+          </motion.p>
+        </div>
+ <div className="mt-5 flex justify-center">
+  <motion.button
+    onClick={onOpen}
+    className="rounded-full border border-primary text-primary px-8 py-3 font-semibold shadow-md relative overflow-hidden transition-colors font-belgiano "
+    variants={textVariants}
+    initial="hidden"
+    animate="visible"
+    custom={4}
+    whileHover={{
+      scale: 1.08,
+      backgroundColor: "#d1fae5", // bisa diganti warna pastel yang elegan
+      color: "#065f46", // teks gelap agar kontras
+      boxShadow: "0 0 15px rgba(0, 255, 150, 0.3)",
+      transition: { duration: 0.3, ease: "easeInOut" },
+    }}
+    whileTap={{ scale: 0.95 }}
+  >
+    Buka Undangan
+    {/* Optional: animasi glow tambahan */}
+    <span className="absolute inset-0 rounded-full bg-gradient-to-r from-grey-200 via-grey-100 to-grey-500 opacity-20 pointer-events-none"></span>
+  </motion.button>
+</div>
 
-            <div className="absolute bottom-8 right-8 w-4/5 flex justify-between items-end text-yellow-400">
-                {/* Kiri: Judul */}
-                <div className="flex-3/4 text-left">
-                    <motion.h2
-                        className="text-3xl font-bold mb-2"
-                        variants={textVariants}
-                        initial="hidden"
-                        animate="visible"
-                        custom={0}
-                    >
-                        The Wedding of
-                    </motion.h2>
-
-                    <motion.h1
-                        className="text-4xl font-serif mb-2"
-                        variants={textVariants}
-                        initial="hidden"
-                        animate="visible"
-                        custom={1}
-                    >
-                        Faesal & Dewi
-                    </motion.h1>
-
-                    <motion.p
-                        className="mb-2"
-                        variants={textVariants}
-                        initial="hidden"
-                        animate="visible"
-                        custom={2}
-                    >
-                        2 September 2025
-                    </motion.p>
-
-                    <motion.p
-                        className="mb-2"
-                        variants={textVariants}
-                        initial="hidden"
-                        animate="visible"
-                        custom={3}
-                    >
-                        Kepada Yth. {guestName}
-                    </motion.p>
-                </div>
-                {/* Kanan: Chevron Button */}
-                <div className="flex-1 flex justify-end items-start">
-                    <motion.button
-                        onClick={onOpen}
-                        className="flex items-center justify-center h-[48px] w-12 border border-yellow-400 bg-transparent text-yellow-400 rounded-lg hover:bg-yellow-400/20 transition -translate-y-2"
-                        variants={textVariants}
-                        initial="hidden"
-                        animate="visible"
-                        custom={4}
-                    >
-                        {/* SVG Chevron */}
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-6 w-6"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth={2}
-                        >
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </motion.button>
-                </div>
-
-
-            </div>
-        </motion.div>
-
-
-    );
+      </div>
+    </motion.div>
+  );
 };
 
 export default LandingScreen;

@@ -10,6 +10,7 @@ import Hero from "./Hero";
 import PrayerCountdown from "./PrayerCountdown";
 import Groom from "./Groom";
 import Bride from "./Bride";
+import Thankyou from "./Thankyou";
 
 function WeddingPage() {
   return (
@@ -38,7 +39,8 @@ function WeddingPage() {
       <RSVPForm />
       <RSVPList />
       <WeddingGift />
-      <Footer /> 
+      <Thankyou /> 
+      {/* <Footer />  */}
     </motion.div>
   );
 }

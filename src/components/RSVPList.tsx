@@ -7,46 +7,54 @@ import { id } from "date-fns/locale"; // untuk bahasa Indonesia
 const RSVPList: React.FC = () => {
   const [messages, setMessages] = useState<RSVPMessage[]>([]);
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const data = await getAllRSVP();
-  //     setMessages(data);
-  //   })();
-  // }, []);
-
   useEffect(() => {
     const unsubscribe = subscribeRSVPs(setMessages);
     return () => unsubscribe();
   }, []);
 
   return (
-    <section className="py-16 px-4 bg-green-50 text-center">
-      <h2 className="text-2xl font-bold mb-6">Ucapan & Doa</h2>
-      <div className="mt-12 max-w-2xl mx-auto text-left">
-        <div className="max-h-[60vh] overflow-y-auto pr-2"> {/* Scrollable wrapper */}
-          <ul className="space-y-4">
+    <section className="pb-20 px-6 bg-bg">
+      <h3 className="text-4xl md:text-5xl font-olivia text-primary text-center mb-10">
+        Greetings
+      </h3>
+
+      <div className="max-w-3xl mx-auto">
+        <div className="max-h-[65vh] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-primary scrollbar-track-transparent">
+          <ul className="space-y-5">
             {messages.map((msg, index) => (
               <li
                 key={index}
-                className="bg-white border border-green-100 rounded-xl p-4 shadow-sm"
+                className="bg-white/60 backdrop-blur-md rounded-2xl p-6 shadow-sm transition hover:shadow-lg"
               >
-                <div className="flex justify-between items-center mb-1">
-                  <span className="font-semibold text-green-700">{msg.name}</span>
+                {/* Header */}
+                <div className="flex justify-between items-center mb-3">
+                  <span className="font-britannic text-lg text-primary">
+                    {msg.name}
+                  </span>
                   <span
-                    className={`text-sm px-2 py-1 rounded-full ${msg.attending
-                        ? "bg-green-100 text-green-800"
-                        : "bg-gray-100 text-gray-500"
-                      }`}
+                    className={`text-xs md:text-sm px-3 py-1 font-belgiano tracking-wide rounded-full border
+    ${
+      msg.attending
+        ? "bg-primary text-white border-primary font-semibold"
+        : "bg-gray-100 text-gray-500 border-gray-300"
+    }`}
                   >
                     {msg.attending ? "Hadir" : "Tidak Hadir"}
                   </span>
                 </div>
-                <p className="text-gray-700 text-sm">
+
+                {/* Message */}
+                <p className="text-gray-700 font-light italic leading-relaxed">
                   {msg.message || "Tanpa pesan"}
                 </p>
+
+                {/* Time */}
                 {msg.createdAt && (
-                  <span className="text-xs text-gray-400 flex justify-end">
-                    {formatDistanceToNow(msg.createdAt.toDate(), { addSuffix: true, locale: id })}
+                  <span className="text-xs text-gray-400 flex justify-end mt-2 font-belgiano">
+                    {formatDistanceToNow(msg.createdAt.toDate(), {
+                      addSuffix: true,
+                      locale: id,
+                    })}
                   </span>
                 )}
               </li>
@@ -56,7 +64,6 @@ const RSVPList: React.FC = () => {
       </div>
     </section>
   );
-
 };
 
 export default RSVPList;

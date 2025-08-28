@@ -1,8 +1,10 @@
 import { Copy } from 'lucide-react'
 import { useState } from 'react'
+const getImage = (name: string) => `${import.meta.env.BASE_URL}images/${name}`;
 
 const WeddingGift = () => {
   const [copied, setCopied] = useState(false)
+  const heroBg = getImage("wedding-gift-bg.jpg");
 
   const handleCopy = () => {
     navigator.clipboard.writeText('1234567890') // Ganti dengan nomor sebenarnya
@@ -11,18 +13,26 @@ const WeddingGift = () => {
   }
 
   return (
-    <section className="bg-white py-16 px-6 text-center">
-      <h3 className="text-2xl font-bold mb-6">Wedding Gift</h3>
+  <section
+      className="relative min-h-screen flex flex-col justify-center items-center text-center bg-cover bg-center bg-scroll px-15"
+      style={{ 
+        backgroundImage: `url(${heroBg})`,
+        backgroundPosition: "center" 
+       }}
+    >
+      <div className="absolute inset-0 bg-black/50"></div>
 
-      <p className="max-w-xl mx-auto text-gray-700 mb-6">
+      <h3 className="font-olivia text-5xl mt-2 text-bg drop-shadow-lg">Wedding Gift</h3>
+  
+      <p className="max-w-xl mx-auto text-bg m-6 drop-shadow-lg font-britannic">
         Doa dan restu Bapak/Ibu/Saudara/i sudah sangat berarti bagi kami. 
         Namun jika ingin memberikan tanda kasih, dapat disampaikan melalui rekening berikut:
       </p>
 
-      <div className="bg-bg-50 border border-green-200 rounded-xl max-w-md mx-auto p-6 shadow-sm">
-        <h4 className="text-lg font-semibold text-green-700 mb-1">BCA - Faesal Herlambang</h4>
+      <div className="max-w-md w-full bg-white/60 backdrop-blur-md rounded-2xl shadow-lg p-6 text-center">
+        <h4 className="text-lg font-semibold text-primary mb-1">BCA - Faesal Herlambang</h4>
         <div className="flex justify-center items-center gap-2">
-          <span className="text-xl tracking-wide text-gray-800 font-mono">1234567890</span>
+          <span className="text-xl tracking-wide text-primary font-semibold">1234567890</span>
           <button
             onClick={handleCopy}
             className="text-green-600 hover:text-green-800 transition"

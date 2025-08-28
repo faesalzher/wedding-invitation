@@ -14,11 +14,11 @@ const Prayer = () => {
         kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi
         kaum yang berpikir.”
       </p> */}
-      <div className="flex items-center justify-center bg-bg px-6">
-        <p className="text-center text-xl md:text-2xl font-olivia-dhorgent text-primary-700 leading-relaxed">
+      <div className="flex items-center justify-center bg-bg p-15">
+        <p className="text-center text-2xl md:text-5xl font-olivia text-primary-700 leading-relaxed">
           "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan untukmu pasang-pasangan dari jenismu sendiri, agar kamu merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang..."
           <br />
-          <span className="mt-4 block font-olivia-dhorgent">(QS. Ar-Rum: 21)</span>
+          <span className="mt-4 block font-olivia">(QS. Ar-Rum: 21)</span>
         </p>
       </div>
     </section>
