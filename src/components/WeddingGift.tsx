@@ -19,7 +19,7 @@ const WeddingGift = () => {
         Namun jika ingin memberikan tanda kasih, dapat disampaikan melalui rekening berikut:
       </p>
 
-      <div className="bg-green-50 border border-green-200 rounded-xl max-w-md mx-auto p-6 shadow-sm">
+      <div className="bg-bg-50 border border-green-200 rounded-xl max-w-md mx-auto p-6 shadow-sm">
         <h4 className="text-lg font-semibold text-green-700 mb-1">BCA - Faesal Herlambang</h4>
         <div className="flex justify-center items-center gap-2">
           <span className="text-xl tracking-wide text-gray-800 font-mono">1234567890</span>
