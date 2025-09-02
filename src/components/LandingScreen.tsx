@@ -17,19 +17,24 @@ const textVariants: Variants = {
 
 const nameVariants: Variants = {
   hidden: { opacity: 0, scale: 0.8 },
-  visible: { 
-    opacity: 1, 
-    scale: 1, 
-    transition: { duration: 0.8, ease: "easeOut" }
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.8, ease: "easeOut" },
   },
 };
 
 const bgVariants: Variants = {
   initial: { scale: 1, y: 0 },
-  animate: { 
-    scale: 1.05, 
-    y: -20, 
-    transition: { duration: 20, repeat: Infinity, repeatType: "mirror", ease: "linear" } 
+  animate: {
+    scale: 1.05,
+    y: -20,
+    transition: {
+      duration: 20,
+      repeat: Infinity,
+      repeatType: "mirror",
+      ease: "linear",
+    },
   },
 };
 
@@ -39,7 +44,7 @@ const LandingScreen = ({ onOpen }: { onOpen: () => void }) => {
 
   return (
     <motion.div
-      className="relative min-h-screen flex flex-col justify-between items-center text-center px-6 p-30 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-between items-center text-center px-4 sm:px-6 md:px-10 py-20 overflow-hidden"
       initial="initial"
       animate="animate"
     >
@@ -50,9 +55,10 @@ const LandingScreen = ({ onOpen }: { onOpen: () => void }) => {
         variants={bgVariants}
       />
 
-      <div className="relative z-10 flex flex-col items-center pt-20">
+      {/* Main Text */}
+      <div className="relative z-20 flex flex-col items-center max-w-4xl w-full">
         <motion.p
-          className="text-3xl text-primary font-belgiano p-5"
+          className="text-[clamp(1.5rem,4vw,2.5rem)] sm:text-[clamp(2rem,4vw,3rem)] text-primary font-belgiano p-5"
           variants={textVariants}
           initial="hidden"
           animate="visible"
@@ -60,8 +66,9 @@ const LandingScreen = ({ onOpen }: { onOpen: () => void }) => {
         >
           The Wedding of
         </motion.p>
+
         <motion.h1
-          className="text-6xl font-perfume text-primary my-2"
+          className="text-[clamp(3rem,8vw,6rem)] sm:text-[clamp(4rem,8vw,7rem)] font-perfume text-primary my-2"
           variants={nameVariants}
           initial="hidden"
           animate="visible"
@@ -70,9 +77,10 @@ const LandingScreen = ({ onOpen }: { onOpen: () => void }) => {
         </motion.h1>
       </div>
 
-      <div className="relative z-10 mb-4">
+      {/* Guest & Date */}
+      <div className="relative z-10 mb-4 flex flex-col items-center w-full max-w-3xl">
         <motion.p
-          className="text-primary text-lg font-belgiano p-3"
+          className="text-[clamp(1rem,3vw,1.5rem)] sm:text-[clamp(1.2rem,3vw,1.75rem)] text-primary font-belgiano p-3"
           variants={textVariants}
           initial="hidden"
           animate="visible"
@@ -82,7 +90,7 @@ const LandingScreen = ({ onOpen }: { onOpen: () => void }) => {
         </motion.p>
 
         <motion.p
-          className="text-primary font-britannic"
+          className="text-[clamp(0.9rem,2.5vw,1.3rem)] sm:text-[clamp(1rem,2.5vw,1.5rem)] text-primary font-britannic"
           variants={textVariants}
           initial="hidden"
           animate="visible"
@@ -92,14 +100,14 @@ const LandingScreen = ({ onOpen }: { onOpen: () => void }) => {
         </motion.p>
 
         <motion.div
-          className="mt-5 flex justify-center"
+          className="mt-5 flex justify-center w-full"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.6, ease: "easeOut" }}
         >
           <motion.button
             onClick={onOpen}
-            className="rounded-full border border-primary text-primary px-8 py-3 font-semibold shadow-md relative overflow-hidden transition-colors font-belgiano"
+            className="rounded-full border border-primary text-primary px-6 sm:px-8 py-2 sm:py-3 font-semibold shadow-md relative overflow-hidden transition-colors font-belgiano text-[clamp(0.9rem,2.5vw,1.2rem)] sm:text-[clamp(1rem,2.5vw,1.25rem)]"
             whileHover={{
               scale: 1.08,
               backgroundColor: "#d1fae5",

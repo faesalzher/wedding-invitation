@@ -8,10 +8,10 @@ const Bride = () => {
   return (
     <section className="h-screen w-full flex">
       {/* Kiri: Teks */}
-      <div className="w-1/2 h-full flex flex-col justify-end p-10 pb-35 bg-bg">
+      <div className="w-1/2 h-full flex flex-col justify-end p-7 pb-35 bg-bg">
         {/* The Bride */}
         <motion.p
-          className="text-xl text-primary italic mb-2 text-left font-olivia text-bg"
+          className="text-3xl text-primary italic mb-2 text-left font-olivia text-bg"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -35,7 +35,7 @@ const Bride = () => {
 
         {/* Putri dari */}
         <motion.p
-          className="text-xl font-abuget text-primary italic mb-1 text-left"
+          className="text-3xl font-abuget text-primary italic mb-1 text-left"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}

@@ -31,10 +31,10 @@ const Event = () => {
       style={{
         backgroundImage: `url(${bg})`,
         backgroundPosition: "30% center",
-        backgroundSize: "150%",
+        // backgroundSize: "100%",
       }}
     >
-      <div className="max-w-md w-full bg-white/70 rounded-4xl shadow-sm p-6 text-center">
+      <div className="max-w-md w-full bg-white/70 rounded-4xl shadow-sm p-6 pt-10 text-center">
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
           {/* Akad */}
           <motion.div
@@ -60,14 +60,14 @@ const Event = () => {
             <div className="flex items-center justify-center gap-2 mb-1">
               Pukul 09.00 WIB
             </div>
-            <div className="flex items-center justify-center gap-2 text-primary text-xs italic">
+            <div className="flex items-center justify-center gap-2 mb-1">
               Villa Hamsa, Junrejo, Kota Batu
             </div>
           </motion.div>
 
           {/* Resepsi */}
           <motion.div
-            className="flex items-center justify-center gap-2 text-gray-600 mt-10"
+            className="flex items-center justify-center gap-2 text-gray-600 mt-2"
             variants={textVariants.fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -89,7 +89,7 @@ const Event = () => {
             <div className="flex items-center justify-center gap-2 mb-1">
               Pukul 13.00 WIB
             </div>
-            <div className="flex items-center justify-center gap-2 text-primary text-xs italic">
+            <div className="flex items-center justify-center gap-2 mb-1">
               Villa Hamsa, Junrejo, Kota Batu
             </div>
           </motion.div>
@@ -110,7 +110,7 @@ const Event = () => {
           <MapEmbed />
 
           <motion.p
-            className="text-center text-sm text-gray-600 mt-3 font-belgiano"
+            className="text-center text-2sm text-gray-600 mt-3 font-belgiano"
             variants={textVariants.fadeUp}
             initial="hidden"
             whileInView="visible"

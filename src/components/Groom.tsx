@@ -29,7 +29,7 @@ const Groom = () => {
         viewport={{ once: true, amount: 0.3 }} // animasi hanya sekali saat 30% komponen masuk viewport
       >
         <motion.p
-          className="text-xl text-primary italic mb-2 text-right font-olivia text-bg"
+          className="text-3xl text-primary italic mb-2 text-right font-olivia text-bg"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -49,7 +49,7 @@ const Groom = () => {
         </motion.h1>
 
         <motion.p
-          className="text-xl font-abuget text-primary italic mb-1 text-right"
+          className="text-3xl font-abuget text-primary italic mb-1 text-right"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
