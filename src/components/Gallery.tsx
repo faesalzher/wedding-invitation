@@ -6,13 +6,21 @@ const BASE_PATH = `${import.meta.env.BASE_URL}images/`;
 
 const Gallery = () => {
   const images = [
-    "Salinan 4.jpg",
-    "Salinan 5.jpg",
-    "Salinan 6.jpg",
-    "Salinan-11.jpg",
-       "Salinan 4.jpg",
-    "Salinan 5.jpg",
-    "Salinan 6.jpg"
+    "gallery-8.jpg",
+    "gallery-10.jpg",
+    "gallery-1.jpg",
+    "gallery-2.jpg",
+    "gallery-3.jpg",
+    "gallery-4.jpg",
+    "gallery-5.jpg",
+    "gallery-6.jpg",
+    "gallery-7.jpg",
+    "gallery-9.jpg",
+    "gallery-13.jpg",
+    "gallery-14.jpg",
+    "gallery-12.jpg",
+    "gallery-15.jpg"
+
   ].map((file) => BASE_PATH + file);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -29,9 +37,7 @@ const Gallery = () => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
 
   const prevImage = () =>
-    setCurrentIndex((prev) =>
-      prev === 0 ? images.length - 1 : prev - 1
-    );
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
 
   const swipeHandlers = useSwipeable({
     onSwipedLeft: nextImage,
@@ -39,29 +45,60 @@ const Gallery = () => {
     trackMouse: true,
   });
 
+ const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+} as const;
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+} as const;
+
   return (
-    <section  className="relative min-h-screen bg-bg flex flex-col justify-center items-center text-center bg-cover bg-center bg-scroll px-6 pb-5">
-      
+    <section className="relative min-h-screen bg-bg flex flex-col justify-center items-center text-center bg-cover bg-center bg-scroll px-6 pb-5">
       <h3 className="text-5xl mb-10 font-olivia text-primary">Our Moments</h3>
+
       <div className="max-h-[75vh] overflow-y-auto pr-2">
-        {/* Grid Gallery */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {/* Grid Gallery dengan animasi */}
+        <motion.div
+          className="grid grid-cols-2 md:grid-cols-3 gap-4"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }} // jalan saat masuk viewport
+        >
           {images.map((src, idx) => (
-            <img
+            <motion.div
               key={idx}
-              src={src}
-              onClick={() => openModal(idx)}
-              className="rounded-lg object-cover w-full cursor-pointer hover:opacity-80"
-            />
+              variants={itemVariants}
+              className="w-full h-full"
+            >
+              <img
+                src={src}
+                onClick={() => openModal(idx)}
+                className="rounded-lg object-cover w-full cursor-pointer hover:opacity-80 shadow-lg"
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
+
       {/* Modal */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             className="fixed inset-0 bg-gradient-to-b from-black/60 via-black/90 to-black/90 flex items-center justify-center z-50"
-
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

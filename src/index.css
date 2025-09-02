@@ -20,13 +20,20 @@
   src: url("/fonts/Belgiano-Serif-2.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "LTPerfume-2";
+  src: url("/fonts/LTPerfume-2.ttf") format("truetype");
+}
+
 @theme {
   --font-olivia: "Olivia-Dhorgent", cursive;
   --font-britannic: "Britannic-Bold-Regular", sans-serif;
   --font-belgiano: "Belgiano-Serif-2";
   --font-abuget: "Abuget";
+  --font-perfume: "LTPerfume-2";
+
 
     /* custom colors */
   --color-primary: #636b7c; /* gelap */
-  --color-bg: #f3efea; /* terang */
+  --color-bg: #f8f4f1; /* terang */
 }

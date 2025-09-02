@@ -1,31 +1,63 @@
+import { motion } from "framer-motion";
+
 const getImage = (name: string) => `${import.meta.env.BASE_URL}images/${name}`;
 
 const Bride = () => {
-  const BrideBg = getImage("couple.jpg");
+  const BrideBg = getImage("Couple-2.jpg");
 
   return (
     <section className="h-screen w-full flex">
-      {/* Kanan: Teks */}
+      {/* Kiri: Teks */}
       <div className="w-1/2 h-full flex flex-col justify-end p-10 pb-35 bg-bg">
-        <p className="text-xl text-primary italic mb-2 text-left font-olivia text-bg ">
+        {/* The Bride */}
+        <motion.p
+          className="text-xl text-primary italic mb-2 text-left font-olivia text-bg"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true, amount: 0.3 }} // animasi hanya sekali, saat 30% elemen terlihat
+        >
           The Bride
-        </p>
-        <h1 className="text-3xl text-primary mb-4 text-left font-britannic text-bg ">
-          Dewi
-          <br />
-          Ayu
-          <br />
+        </motion.p>
+
+        {/* Nama */}
+        <motion.h1
+          className="text-3xl text-primary mb-4 text-left font-britannic text-bg"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.5 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          Dewi <br />
+          Ayu <br />
           Fitriani
-        </h1>
-        <p className="text-xl font-abuget  text-primary italic mb-1 text-left">
+        </motion.h1>
+
+        {/* Putri dari */}
+        <motion.p
+          className="text-xl font-abuget text-primary italic mb-1 text-left"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           Putri dari
-        </p>
-        <p className="text-base text-xl text-primary text-left font-belgiano ">
+        </motion.p>
+
+        {/* Orang tua */}
+        <motion.p
+          className="text-base text-xl text-primary text-left font-belgiano"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 1.1 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           Bapak Ismail <br />
           Ibu Ulin Nusroh
-        </p>
+        </motion.p>
       </div>
 
+      {/* Kanan: Gambar */}
       <div className="w-1/2 h-full flex justify-center items-center relative">
         <div
           className="absolute inset-0 rounded-tl-3xl rounded-bl-3xl overflow-hidden"

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import dayjs from "dayjs";
+import { motion, AnimatePresence } from "framer-motion";
 
 const targetDate = dayjs("2025-09-28T09:00:00");
 
@@ -27,20 +28,55 @@ const Countdown = () => {
 
   return (
     <section className="text-center py-16 px-4 relative bg-bg-50">
-      <h1 className="mb-10 text-sm italic text-white/80">Save The Date! 🌿</h1>
-      <h3 className="text-5xl mb-8 font-olivia text-white drop-shadow-md">
+      <motion.h1
+        className="mb-10 text-sm italic text-white/80"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
+        Save The Date !
+      </motion.h1>
+
+      <motion.h3
+        className="text-5xl mb-8 font-olivia text-white drop-shadow-md"
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
         Menuju Hari Bahagia
-      </h3>
+      </motion.h3>
 
       <div className="flex flex-nowrap gap-4 justify-center overflow-x-auto px-2 scrollbar-hide">
         {timeItems.map((item, index) => (
-          <div
+          <motion.div
             key={index}
-            className="min-w-[80px] sm:min-w-[100px] px-4 py-3 rounded-2xl border border-white/30 bg-white/20 backdrop-blur-md shadow-lg hover:scale-105 transition-all duration-300 text-white"
+            className="min-w-[80px] sm:min-w-[100px] px-4 py-3 rounded-2xl border border-white/30 bg-white/20 backdrop-blur-md shadow-lg text-white"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: index * 0.2, // biar muncul bergiliran
+              ease: "easeOut",
+            }}
+            viewport={{ once: true, amount: 0.3 }}
           >
-            <div className="text-2xl sm:text-3xl font-bold">{item.value}</div>
+            {/* AnimatePresence supaya value animasi tiap detik */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={item.value} // penting supaya rerender tiap kali berubah
+                className="text-2xl sm:text-3xl font-bold"
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.5, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {item.value}
+              </motion.div>
+            </AnimatePresence>
             <div className="text-sm sm:text-base mt-1">{item.label}</div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

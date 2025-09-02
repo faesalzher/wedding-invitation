@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { saveRSVP } from "../services/rsvpService";
 import { motion } from "framer-motion";
+const getImage = (name: string) => `${import.meta.env.BASE_URL}images/${name}`;
 
 const RSVPForm: React.FC = () => {
   const [name, setName] = useState("");
@@ -8,6 +9,7 @@ const RSVPForm: React.FC = () => {
   const [attending, setAttending] = useState(true);
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const bgoverlay = getImage("bg-overlay-monochrome .jpg");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,22 +27,43 @@ const RSVPForm: React.FC = () => {
   };
 
   return (
-    <section className="py-20 px-6 bg-primary-50 text-center">
+    <section className="py-20 px-6 bg-primary-50 text-center bg-cover bg-no-repeat"
+         style={{
+        backgroundImage: `url(${bgoverlay})`,
+      }}
+    >
       {/* Heading */}
-      <h3 className="text-4xl md:text-5xl font-olivia text-primary mb-4">
+      <motion.h3
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="text-4xl md:text-5xl font-olivia text-primary mb-4"
+      >
         RSVP
-      </h3>
-      <p className="mb-8 text-primary-700 font-belgiano">
-        Dengan penuh kebahagiaan kami menantikan kehadiran Anda
-      </p>
+      </motion.h3>
 
-      {/* Form */}
-      <form
+      <motion.p
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
+        viewport={{ once: true }}
+        className="mb-8 text-primary font-belgiano"
+      >
+        Dengan penuh kebahagiaan kami menantikan kehadiran Anda
+      </motion.p>
+
+      {/* Form dengan animasi */}
+      <motion.form
         onSubmit={handleSubmit}
-        className="bg-white/60 backdrop-blur-md shadow-lg max-w-lg mx-auto rounded-2xl p-8 shadow-lg space-y-5 text-left "
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+        viewport={{ once: true }}
+        className="bg-white/70 shadow-lg max-w-lg mx-auto rounded-4xl p-8 shadow-lg space-y-5 text-left"
       >
         <div>
-          <label className="block text-lg font-britannic  text-primary mb-1 ">
+          <label className="block text-lg font-britannic text-primary mb-1">
             Nama
           </label>
           <input
@@ -54,7 +77,7 @@ const RSVPForm: React.FC = () => {
         </div>
 
         <div>
-          <label className="block text-lg font-britannic  text-primary mb-1">
+          <label className="block text-lg font-britannic text-primary mb-1">
             Ucapan & Doa
           </label>
           <textarea
@@ -73,21 +96,19 @@ const RSVPForm: React.FC = () => {
             onChange={(e) => setAttending(e.target.checked)}
             className="w-4 h-4 accent-primary"
           />
-          <label className="text-md font-britannic text-primary">
-            Hadir
-          </label>
+          <label className="text-md font-britannic text-primary">Hadir</label>
         </div>
 
-<motion.button
-  type="submit"
-  disabled={loading}
-  whileTap={{ scale: 0.95 }} // efek mengecil saat ditekan
-  whileHover={{ scale: 1.02 }} // sedikit membesar saat hover
-  className="w-full bg-primary text-white py-2.5 px-4 rounded-lg font-britannic tracking-wide shadow-sm hover:bg-primary-600 transition disabled:opacity-70"
->
-  {loading ? "Mengirim..." : "Kirim RSVP"}
-</motion.button>
-      </form>
+        <motion.button
+          type="submit"
+          disabled={loading}
+          whileTap={{ scale: 0.95 }}
+          whileHover={{ scale: 1.02 }}
+          className="w-full bg-primary text-white py-2.5 px-4 rounded-lg font-britannic tracking-wide shadow-sm hover:bg-primary-600 transition disabled:opacity-70"
+        >
+          {loading ? "Mengirim..." : "Kirim RSVP"}
+        </motion.button>
+      </motion.form>
 
       {/* Modal */}
       {showModal && (
