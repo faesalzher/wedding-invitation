@@ -130,13 +130,13 @@ const LandingScreen = ({ onOpen }: { onOpen: () => void }) => {
   const urlParams = new URLSearchParams(window.location.search);
   const toParam = urlParams.get("to"); 
 
-  let isTamu = false;
+  // let isTamu = false;
   let guestName = "Tamu Undangan";
 
   if (toParam) {
     const parts = toParam.split("/");
     if (parts[0] === "Tamu") {
-      isTamu = true;
+      // isTamu = true;
       guestName = decodeURIComponent((parts[1] || "").replace(/\+/g, " "));
     } else {
       guestName = decodeURIComponent(toParam.replace(/\+/g, " "));
