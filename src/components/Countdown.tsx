@@ -27,7 +27,7 @@ const Countdown = () => {
   ];
 
   return (
-    <section className="text-center py-16 px-4 relative bg-bg-50">
+    <section className="text-center py-16 relative bg-bg-50">
       <motion.h1
         className="mb-10 text-sm italic text-white/80"
         initial={{ opacity: 0, y: 20 }}
@@ -39,7 +39,7 @@ const Countdown = () => {
       </motion.h1>
 
       <motion.h3
-        className="text-5xl mb-8 font-olivia text-white drop-shadow-md"
+        className="text-4xl mb-8 font-olivia text-white drop-shadow-md"
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
@@ -48,7 +48,7 @@ const Countdown = () => {
         Menuju Hari Bahagia
       </motion.h3>
 
-      <div className="flex flex-nowrap gap-4 justify-center overflow-x-auto px-2 scrollbar-hide">
+      <div className="flex flex-nowrap gap-2 justify-center overflow-x-auto px-2 scrollbar-hide">
         {timeItems.map((item, index) => (
           <motion.div
             key={index}

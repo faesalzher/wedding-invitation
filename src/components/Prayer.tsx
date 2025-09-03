@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const Prayer = () => {
   return (
     <section className="text-center text-primary">
-      <div className="flex items-center justify-center m-10 p-7 shadow-sm bg-white/70 rounded-4xl ">
+      <div className="flex items-center justify-center m-10 p-9 shadow-sm bg-white/70 rounded-4xl ">
         <motion.p
           className="text-center text-2xl md:text-5xl font-abuget text-primary-700"
           initial={{ opacity: 0, y: 50 }}

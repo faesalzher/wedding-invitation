@@ -5,11 +5,11 @@ const Thankyou = () => {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col justify-center items-center text-center bg-cover bg-center bg-scroll px-6"
+      className="relative min-h-screen flex flex-col justify-center items-center text-center bg-cover bg-center px-6"
       style={{
         backgroundImage: `url(${bg})`,
-        backgroundPosition: "90% center",
-        // backgroundSize: "100%",
+        backgroundPosition: "center",
+        backgroundSize: "101%",
       }}
     >
       {/* Overlay supaya teks kontras */}

@@ -12,6 +12,26 @@ import Bride from "./Bride";
 import Thankyou from "./Thankyou";
 
 function WeddingPage() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const toParam = urlParams.get("to"); // contoh: "Tamu/Rizky+Putra+Abimana"
+
+  let isTamu = false;
+  let guestName = "Tamu Undangan";
+
+  if (toParam) {
+    const parts = toParam.split("/");
+    if (parts[0] === "Tamu") {
+      isTamu = true;
+      guestName = decodeURIComponent((parts[1] || "").replace(/\+/g, " "));
+    } else {
+      guestName = decodeURIComponent(toParam.replace(/\+/g, " "));
+    }
+  }
+
+  if(guestName == "Tamu Undangan"){
+    isTamu = true
+  }
+
   return (
     <motion.div
       className="bg-bg text-primary-800"
@@ -22,13 +42,13 @@ function WeddingPage() {
       <Hero />
       <Groom />
       <Bride />
-      <PrayerCountdown/>
+      <PrayerCountdown />
       <Event />
-         <Gallery />
+      {!isTamu && <Gallery />}
       <RSVPForm />
       <RSVPList />
-      <WeddingGift />
-      <Thankyou /> 
+      {!isTamu && < WeddingGift />}
+      <Thankyou />
     </motion.div>
   );
 }
