@@ -58,7 +58,7 @@ const Event = () => {
               Minggu, 28 September 2025
             </div>
             <div className="flex items-center justify-center gap-2 mb-1">
-              Pukul 09.00 WIB
+              Pukul 08.00 WIB - Selesai
             </div>
             <div className="flex items-center justify-center gap-2 mb-1">
               Villa Hamsa, Junrejo, Kota Batu
@@ -87,7 +87,7 @@ const Event = () => {
               Minggu, 28 September 2025
             </div>
             <div className="flex items-center justify-center gap-2 mb-1">
-              Pukul 13.00 WIB
+              Pukul 13.00 WIB - 16.00 WIB
             </div>
             <div className="flex items-center justify-center gap-2 mb-1">
               Villa Hamsa, Junrejo, Kota Batu

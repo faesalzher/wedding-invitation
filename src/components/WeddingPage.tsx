@@ -28,8 +28,8 @@ function WeddingPage() {
     }
   }
 
-  if(guestName == "Tamu Undangan"){
-    isTamu = true
+  if (guestName == "Tamu Undangan") {
+    isTamu = true;
   }
 
   return (
@@ -47,8 +47,8 @@ function WeddingPage() {
       {!isTamu && <Gallery />}
       <RSVPForm />
       <RSVPList />
-      {!isTamu && < WeddingGift />}
-      <Thankyou />
+      {!isTamu && <WeddingGift />}
+      {!isTamu && <Thankyou />}
     </motion.div>
   );
 }

@@ -63,7 +63,7 @@ const WeddingGift = () => {
         </h4>
         <div className="flex justify-center items-center gap-2">
           <span className="text-xl tracking-wide text-primary font-semibold">
-            1234567890
+            4390820904
           </span>
           <button
             onClick={handleCopy}
