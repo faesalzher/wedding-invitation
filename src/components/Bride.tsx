@@ -10,7 +10,7 @@ const Bride = () => {
     <section className="h-screen w-full flex">
       {/* Kiri: Teks */}
       <motion.div
-        className="w-1/2 h-full flex flex-col justify-end items-start p-7 pb-32 bg-[#f3f0eb] rounded-tl-3xl rounded-bl-3xl overflow-hidden relative"
+        className="w-1/2 h-full flex flex-col justify-end items-start p-7 pb-20 bg-[#f3f0eb] rounded-tl-3xl rounded-bl-3xl overflow-hidden relative"
         initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
@@ -28,7 +28,7 @@ const Bride = () => {
           }}
         />
 
-        <div className="relative z-10 text-left">
+        <div className="relative z-8 text-left">
           {/* The Bride */}
           <motion.p
             className="text-3xl text-primary italic mb-2 font-olivia"
