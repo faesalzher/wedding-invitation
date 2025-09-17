@@ -10,7 +10,7 @@ const WeddingGift = () => {
   const heroBg = getImage("wedding-gift-bg.jpg");
 
   const handleCopy = () => {
-    navigator.clipboard.writeText("1234567890"); // Ganti dengan nomor sebenarnya
+    navigator.clipboard.writeText("4390820904"); // Ganti dengan nomor sebenarnya
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
